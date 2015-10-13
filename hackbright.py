@@ -92,36 +92,37 @@ def handle_input():
 
     while command != "quit":
         input_string = raw_input("HBA Database> ")
-        tokens = input_string.split()
-        command = tokens[0]
-        args = tokens[1:]
+        if input_string != "":
+            tokens = input_string.split()
+            command = tokens[0]
+            args = tokens[1:]
 
-        if command == "student":
-            github = args[0]
-            get_student_by_github(github)
+            if command == "student":
+                github = args[0]
+                get_student_by_github(github)
 
-        elif command == "assign_grade":
-            github = args[0]
-            title = args[1]
-            grade = args[2]
-            assign_grade(github, title, grade)
+            elif command == "assign_grade":
+                github = args[0]
+                title = args[1]
+                grade = args[2]
+                assign_grade(github, title, grade)
 
-        elif command == "project":
-            title = args[0]
-            get_project_by_title(title)
+            elif command == "project":
+                title = args[0]
+                get_project_by_title(title)
 
-        elif command == "grade":
-            github = args[0]
-            title = args[1]
-            get_grade_by_github_title(github, title)
+            elif command == "grade":
+                github = args[0]
+                title = args[1]
+                get_grade_by_github_title(github, title)
 
-        elif command == "new_student":
-            first_name, last_name, github = args   # unpack!
-            make_new_student(first_name, last_name, github)
+            elif command == "new_student":
+                first_name, last_name, github = args   # unpack!
+                make_new_student(first_name, last_name, github)
 
-        else:
-            if command != "quit":
-                print "Invalid Entry. Try again."
+            else:
+                if command != "quit":
+                    print "Invalid Entry. Try again."
 
 
 if __name__ == "__main__":
